@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Simple calculator</title>
+<style>
+.container
+        {
+width:400px;
+height:400px;
+margin:auto;
+border: 2px solid black;
+border-radius: 5px;
+background-color: #3a929c;
+margin-top: 60px;
+      }
+h2
+  {
+text-align: center; 
+font-family:'Georgia', serif;
+  }
+.result
+  {
+padding:5px;
+border-radius: 5px;
+border-color: #4eb4f4;
+ }
+            
+</style>   
+</head>
+<body>
+        <div class="container">
+           <h2 class="display-2"> <b> Simple Calculator </b> </h2>
+           <br> 
+           <label>Enter first number:</label>
+           <input type="text" name="first_number" id="first_number" class="form-control">
+           <br>
+           <label>Enter second number:</label>
+           <input type="text" name="second_number" id="second_number" class="form-control">
+           <br>
+           <label>Select one option:</label>
+           <select class="form-select" id="select_option">
+            <option selected> Please select</option>
+    <option value="">+</option>
+    <option value="">-</option>
+    <option value="">*</option>
+    <option value="">/</option>
+</select>
+           <br>
+          <button type="button" class="btn btn-primary btn-block" onclick=result();>CALCULATE</button>
+          <br>
+          <label>Result:</label>
+          <input type="text" name="result" id="result" value="">
+        </div>
+        <p id="demo"></p>
+<script>
+function result()
+ {
+var first_number = document.getElementById("first_number").value;
+var second_number = document.getElementById("second_number").value;
+
+var select = document.getElementById("select_option");
+var selected_option = select.options[select.selectedIndex].text;
+//alert(selected_option);
+
+var calculated_output;
+
+switch(selected_option)
+{
+    case '+':
+    calculated_output = Number(first_number) + Number(second_number);
+    document.getElementById("result").value = calculated_output;
+    break;
+
+    case '-':
+    calculated_output = Number(first_number) - Number(second_number);
+    document.getElementById("result").value = calculated_output;
+    break;
+                         
+    case '*':
+    calculated_output = Number(first_number) * Number(second_number);
+    document.getElementById("result").value = calculated_output;
+    break; 
+                         
+    case '/':
+    calculated_output = Number(first_number) / Number(second_number);
+    document.getElementById("result").value = calculated_output;
+    break;         
+
+}
+ }
+ </script>
+ </body>
+ </html>
